@@ -28,7 +28,7 @@ class UserController extends Controller
             return DataTables::eloquent($query)
                 ->addColumn('action', [$this, 'editActionColumn'])
                 ->orderColumn('id', '-id $1')
-                ->rawColumns(['id', 'status', 'action'])
+                ->rawColumns(['id', 'action'])
                 ->toJson();
         }
 
@@ -160,7 +160,9 @@ class UserController extends Controller
      */
     public function editActionColumn(User $user)
     {
-        return '<a class="btn open-modal" href="'. route('users.edit', ['user' => $user->id]) .'" data-toggle="tooltip" data-placement="right" title="'. __('models/user.action.edit') .'"><i class="fa fa-pencil text-primary"></i></a>';
+        $_html = '<a class="btn open-modal" href="'. route('users.edit', ['user' => $user->id]) .'" data-toggle="tooltip" data-placement="right" title="'. __('models/user.action.edit') .'"><i class="fa fa-pencil text-primary"></i></a>';
+        $_html .= '<a class="open-modal" href="'. route('users.destroy-modal', ['user' => $user->id]) .'" data-toggle="tooltip" title="'. __('models/user.action.delete') .'"><i class="fa fa-close text-danger"></i></a>';
+        return $_html;
     }
 
 }

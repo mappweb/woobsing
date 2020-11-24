@@ -10,8 +10,8 @@
                 <h4 class="text-center text-danger">@lang('global.messages.confirm_delete', ['label' => $user->full_name ])</h4>
             </div>
             <div class="modal-footer">
-                {!! Form::button(__('global.actions.yes'), ['class' => 'btn btn-danger waves-effect text-left', 'data-dismiss' => 'modal']) !!}
-                {!! Form::submit(__('generals.actions.no'), ['class' => 'btn btn-primary waves-effect text-left']) !!}
+                {!! Form::button(__('global.actions.no'), ['class' => 'btn btn-danger waves-effect text-left', 'data-dismiss' => 'modal']) !!}
+                {!! Form::submit(__('global.actions.yes'), ['class' => 'btn btn-primary waves-effect text-left']) !!}
             </div>
         </div>
     </div>
